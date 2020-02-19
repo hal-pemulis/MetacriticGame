@@ -16,6 +16,9 @@ with open('metacritic_game_user_comments.csv', 'r') as f:
             user_score = row[3]
             user_comment = row[4]
 
+    # Code is breaking here...
+    # it's correctly selecting a random number within in the CSV's range...
+    # but it's not matching that number with row[0] correctly
     print(game)
 
     print(f"This user rated this game a score of {user_score}.")
