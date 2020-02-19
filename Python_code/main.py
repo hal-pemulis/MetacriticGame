@@ -6,9 +6,14 @@ with open('metacritic_game_user_comments.csv', 'r') as f:
 
     header = next(csvreader)
 
-    comment_num = random.randrange(0, sum(1 for row in csvreader))
+    # Had to change this to a explicitly defined max number
+    # apparently two for loops through the file is too many?
+    # old code:
+    # comment_num = random.randrange(0, sum(1 for row in csvreader))
 
-    print(f'random number: {comment_num}')
+    comment_num = random.randrange(0, 283982)
+
+    # print(f'random number: {comment_num}')
 
     for row in csvreader:
         if int(row[0]) == comment_num:
@@ -16,12 +21,7 @@ with open('metacritic_game_user_comments.csv', 'r') as f:
             user_score = row[3]
             user_comment = row[4]
 
-    # Code is breaking here...
-    # it's correctly selecting a random number within in the CSV's range...
-    # but it's not matching that number with row[0] correctly
-    print(game)
-
-    print(f"This user rated this game a score of {user_score}.")
+    print(f"\rThis user rated this game a score of {user_score}.")
     print(f"Here's what they had to say about it:\r{user_comment}\r")
     print(f"What game is this?")
 
@@ -35,4 +35,5 @@ with open('metacritic_game_user_comments.csv', 'r') as f:
         else:
             guess_again = (f'Nope. Want to try again? (y/n) ')
     else:
+        print(f'It was {game}.')
         print(f'Thanks for playing!')
