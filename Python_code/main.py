@@ -1,6 +1,8 @@
 import csv
 import random
 
+print(f'Finding a MetaCritic comment....')
+
 with open('metacritic_game_user_comments.csv', 'r') as f:
     csvreader = csv.reader(f, delimiter = ',')
 
@@ -33,7 +35,7 @@ with open('metacritic_game_user_comments.csv', 'r') as f:
         if guess in game:
             print(f'Yes! It was {game}!')
         else:
-            guess_again = (f'Nope. Want to try again? (y/n) ')
+            guess_again = input(f'Nope. Want to try again? (y/n) ')
     else:
         print(f'It was {game}.')
         print(f'Thanks for playing!')
