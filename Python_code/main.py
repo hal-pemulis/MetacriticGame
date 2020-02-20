@@ -45,11 +45,14 @@ with open('metacritic_game_info.csv', 'r') as info:
     while guess_again == 'y':
         guess = input(f"Enter a game: ")
 
-        if guess in game:
-            print(f'\rYes!')
-            guess_again = 'n'
+        if len(guess) > 1:
+            if guess in game:
+                print(f'\rYes!')
+                guess_again = 'n'
+            else:
+                guess_again = input(f'\rNope. Want to try again? (y/n) ')
         else:
-            guess_again = input(f'\rNope. Want to try again? (y/n) ')
+            print('Come on. Enter a real guess.')
     else:
         print(f'It was {game}.')
         print(f'\rThanks for playing!')
